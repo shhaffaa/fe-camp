@@ -71,3 +71,4 @@ export default defineConfig([
   },
 ]);
 ```
+- first auto deploy test
