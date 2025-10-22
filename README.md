@@ -72,3 +72,4 @@ export default defineConfig([
 ]);
 ```
 - first auto deploy test
+- auto deploy check 2025-10-22T19:03:13+07:00

@@ -52,7 +52,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} /* <-- TUTUP blok focus di sini */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -66,3 +66,15 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Skip link: muncul saat fokus, untuk lompat ke <main> */
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus {
+  /* optional: pakai fixed agar di atas header */
+  position: fixed;
+  left: 0; top: 0;
+  background: #fff;
+  padding: .5rem .75rem;
+  border: 2px solid #000;
+  z-index: 1000;
+} /* <-- TUTUP blok skip-link:focus */
