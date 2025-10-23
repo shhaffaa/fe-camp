@@ -3,6 +3,7 @@
   --brand-primary:#34699A;
   --brand-sky:#58A0C8;
   --brand-sun:#FDF5AA;    /* aksen */
+  --header-h: 64px;
   --text:#0f172a;
   --muted:#475569;
   --radius:16px;
@@ -20,6 +21,61 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Header netral: navy HANYA untuk link menu */
+.site-header{
+  position: sticky; top: 0; z-index: 20;
+  background: #fff; border-bottom: 1px solid #e5e7eb; height: var(--header-h);
+  display:flex; align-items:center;
+}
+.site-header .container{ display:flex; align-items:center; justify-content:space-between; gap:1rem; max-width:1100px; margin:0 auto; padding:0 1rem; }
+.brand{ color:#0f172a; text-decoration:none; font-weight:900; letter-spacing:.2px; }
+
+/* Tombol burger (ikon saja) */
+.menu-button{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border:1px solid #d1d5db; border-radius:.5rem; background:#fff; color:#0f172a;
+}
+.menu-button:hover{ background:#f9fafb; }
+
+/* Menu container (mobile overlay, desktop inline) */
+.menu{
+  position: fixed; inset: 0 0 auto 0; top: var(--header-h);
+  background:#fff; border-top:1px solid #e5e7eb; padding: .75rem 1rem;
+  transform: translateY(-8px); opacity:0; pointer-events:none; transition: .2s ease;
+}
+.menu.open{ transform:none; opacity:1; pointer-events:auto; }
+
+/* Link menu: navy gelap */
+.nav-list{ list-style:none; padding:0; margin:0; display:flex; gap:.5rem; flex-direction:column; }
+.nav-list a{
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.55rem .8rem; border-radius:.5rem; text-decoration:none;
+  color: var(--brand-ink);                     /* <- NAVY hanya di item menu */
+}
+.nav-list a[aria-current="page"]{
+  background: var(--brand-sun); color: var(--brand-ink); font-weight: 800;
+}
+
+/* Desktop: menu horizontal, tanpa overlay */
+@media (min-width: 960px){
+  .menu{
+    position: static; inset: auto; background: transparent; border: 0; padding:0;
+    transform: none; opacity:1; pointer-events:auto;
+  }
+  .menu.open{ /* no-op di desktop */ }
+  .menu-button{ display:none; }                /* burger disembunyikan di desktop */
+  .nav-list{ flex-direction: row; gap:.25rem; }
+}
+
+/* Hero benar-benar full layar (menghitung tinggi header) */
+.hero--full{ min-height: calc(100svh - var(--header-h)); display:grid; place-items:center; }
+
+/* Header lebih kecil di mobile */
+@media (max-width: 640px){
+  :root{ --header-h: 56px; }
+}
+
 
 a {
   font-weight: 500;

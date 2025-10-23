@@ -45,22 +45,26 @@ export default function Header() {
   };
 
   return (
+    // src/components/Header.tsx (potongan di dalam return)
     <header className="site-header">
       <a className="skip-link" href="#main">Lewati ke konten</a>
       <div className="container">
-        <NavLink to="/" className="brand" aria-label="Halaman depan FE Camp">FE Camp</NavLink>
-        <nav aria-label="Situs utama">
+        <NavLink to="/" className="brand" aria-label="Halaman depan fe-camp">fe-camp</NavLink>
+
+        <nav aria-label="Navigasi utama">
+          {/* Tombol burger (mobile only) */}
           <button
             ref={btnRef}
             className="menu-button"
             aria-expanded={open}
             aria-controls="main-menu"
+            aria-label="Menu"             // <- teks “buka menu” dihapus, pakai aria-label
             onClick={() => setOpen(v => !v)}
           >
             <span aria-hidden="true">☰</span>
-            <span className="sr-only">{open ? "Tutup" : "Buka"} menu</span>
           </button>
 
+          {/* Menu */}
           <div
             id="main-menu"
             ref={menuRef}
@@ -69,18 +73,20 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
           >
-          <ul>
-            <li><NavLink to="/shop" onClick={() => setOpen(false)}>Shop</NavLink></li>
-            <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
-            <li><NavLink to="/post" onClick={() => setOpen(false)}>Post</NavLink></li>
-            <li><NavLink to="/cart" onClick={() => setOpen(false)}>
-                Cart{count > 0 && <span className="badge" aria-label={`${count} item di keranjang`}>{count}</span>}</NavLink></li>
-          </ul>
-
-
+            <ul className="nav-list">
+              <li><NavLink to="/shop" onClick={() => setOpen(false)}>Shop</NavLink></li>
+              <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
+              <li><NavLink to="/post" onClick={() => setOpen(false)}>Post</NavLink></li>
+              <li>
+                <NavLink to="/cart" onClick={() => setOpen(false)}>
+                  Cart{count > 0 && <span className="badge" aria-label={`${count} item di keranjang`}>{count}</span>}
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
     </header>
+
   );
 }
