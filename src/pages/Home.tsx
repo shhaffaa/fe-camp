@@ -1,22 +1,13 @@
 import Hero from "../components/Hero";
 
 export default function Home() {
-  return (
-    <section>
-      <h1>Home</h1>
-      <p>Landing sederhana.</p>
-    </section>
-  );
-
+  document.title = "fe-camp - Toko Peralatan Hiking";
   return (
     <>
       <Hero />
       <section className="home__section">
-        <h2>Terbaru</h2>
-        <p>Mulai dari struktur proyek, routing, sampai pengukuran Lighthouse.</p>
-        <p>
-          Lanjut ke <Link to="/post">halaman Post</Link> untuk detail setiap langkah.
-        </p>
+        <h2>Produk Unggulan</h2>
+        <p>Lihat katalog lengkap di <a href="/shop">Shop</a>.</p>
       </section>
     </>
   );
