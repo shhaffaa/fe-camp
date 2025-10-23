@@ -1,19 +1,32 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Routes, Route, Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Post from "./pages/Post";
+import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
+
+function Layout() {
+  return (
+    <>
+      <Header />
+      <main id="main"><Outlet /></main>
+    </>
+  );
+}
 
 export default function App() {
   return (
-    <>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header>
-        <nav aria-label="Primary">
-          <Link to="/">Home</Link>{' | '}
-          <Link to="/post/hello">Sample Post</Link>
-        </nav>
-      </header>
-      <main id="main">
-        <Outlet />
-      </main>
-      <footer>© {new Date().getFullYear()}</footer>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="post" element={<Post />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="shop/:slug" element={<ProductDetail />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }

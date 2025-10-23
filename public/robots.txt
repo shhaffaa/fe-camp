@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fe-camp-li58sfrnq-rhubarbs-projects.vercel.app/sitemap.xml

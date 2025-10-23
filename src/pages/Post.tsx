@@ -1,11 +1,10 @@
-import { useParams } from 'react-router-dom';
-
 export default function Post() {
-  const { id } = useParams();
+  document.title = "Post — FE Camp";
   return (
-    <article>
-      <h1>Post: {id}</h1>
-      <p>Detail artikel contoh.</p>
-    </article>
+    <>
+      <h1>Post</h1>
+      <p>Kumpulan catatan & eksperimen FE Camp.</p>
+    </>
   );
 }
+
