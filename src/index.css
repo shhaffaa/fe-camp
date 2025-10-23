@@ -78,3 +78,79 @@ button:focus-visible {
   border: 2px solid #000;
   z-index: 1000;
 } /* <-- TUTUP blok skip-link:focus */
+
+/* === HERO === */
+.hero {
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+.hero__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+.hero__content { max-width: 640px; }
+.hero__eyebrow {
+  font-size: .875rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6b7280; /* gray-500 */
+  margin: 0 0 .5rem;
+}
+.hero__title {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.9rem, 2vw + 1.2rem, 3rem);
+  line-height: 1.1;
+  color: #0f172a; /* slate-900 */
+}
+.hero__sub {
+  margin: 0 0 1.25rem;
+  color: #374151; /* gray-700 */
+  font-size: 1.05rem;
+}
+.hero__actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  padding: .75rem 1rem;
+  border-radius: .625rem;
+  border: 1px solid #111827;
+  min-height: 44px; min-width: 44px; /* tap target */
+  text-decoration: none; font-weight: 600;
+}
+.btn--primary { background:#111827; color:#fff; }
+.btn--primary:hover { opacity:.9; }
+.btn--ghost { background: transparent; color:#111827; }
+.btn--ghost:hover { background:#f3f4f6; }
+
+.hero__visual { justify-self: end; }
+.hero__visual img {
+  display:block;
+  width: 100%; max-width: 560px;
+  height: auto; border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(2,6,23,.12);
+}
+
+/* Section bawah hero */
+.home__section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+.home__section h2 { margin: 0 0 .5rem; font-size: 1.25rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero__container { grid-template-columns: 1fr; padding: 2.25rem 1rem; }
+  .hero__visual { justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html:focus-within { scroll-behavior: auto; }
+}
