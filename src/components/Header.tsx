@@ -67,10 +67,13 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
           >
-            <ul>
-              <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
-              <li><NavLink to="/post" onClick={() => setOpen(false)}>Post</NavLink></li>
-            </ul>
+          <ul>
+            <li><NavLink to="/shop" onClick={() => setOpen(false)}>Shop</NavLink></li>
+            <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
+            <li><NavLink to="/post" onClick={() => setOpen(false)}>Post</NavLink></li>
+          </ul>
+
+
           </div>
         </nav>
       </div>
