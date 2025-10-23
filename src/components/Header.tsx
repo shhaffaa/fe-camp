@@ -1,11 +1,13 @@
 // src/components/Header.tsx
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../context/cart";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
+  const { count } = useCart();
 
   // ESC menutup menu
   useEffect(() => {
@@ -71,6 +73,8 @@ export default function Header() {
             <li><NavLink to="/shop" onClick={() => setOpen(false)}>Shop</NavLink></li>
             <li><NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink></li>
             <li><NavLink to="/post" onClick={() => setOpen(false)}>Post</NavLink></li>
+            <li><NavLink to="/cart" onClick={() => setOpen(false)}>
+                Cart{count > 0 && <span className="badge" aria-label={`${count} item di keranjang`}>{count}</span>}</NavLink></li>
           </ul>
 
 

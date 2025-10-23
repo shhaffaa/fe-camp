@@ -196,3 +196,38 @@ button:focus-visible {
 .btn--ghost:hover { background:#f3f4f6; }
 
 /* sr-only sudah ada di filemu, pastikan tetap */
+
+/* Badge kecil untuk cart */
+.badge { margin-left:.375rem; display:inline-flex; min-width:1.25rem; height:1.25rem; padding:0 .35rem;
+  align-items:center; justify-content:center; border-radius:9999px; font-size:.75rem; background:#111827; color:#fff; }
+
+/* Grid kartu (kalau belum) */
+.grid { display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr); }
+.pcard { grid-column: span 3; border:1px solid #e5e7eb; border-radius:.75rem; overflow:hidden; background:#fff; display:flex; flex-direction:column; }
+@media (max-width:1024px){ .pcard { grid-column: span 4; } }
+@media (max-width:640px){ .pcard { grid-column: span 6; } }
+.pcard__img { position:relative; display:block; background:#f9fafb; }
+.pcard__img img { display:block; width:100%; height:auto; }
+.pcard__badge { position:absolute; top:.5rem; left:.5rem; background:#111827; color:#fff; font-size:.75rem; padding:.2rem .45rem; border-radius:.375rem; }
+.pcard__body { padding:.8rem .9rem 1rem; display:flex; flex-direction:column; gap:.5rem; }
+.pcard__title { margin:0; font-size:1rem; }
+.pcard__price { margin:0; font-weight:700; }
+.pcard__desc { margin:0; color:#4b5563; font-size:.9rem; }
+.pcard__actions { margin-top:auto; display:flex; gap:.5rem; }
+
+/* Product detail */
+.pd { max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; }
+.pd__crumbs { margin-bottom: .75rem; color:#6b7280; }
+.pd__grid { display:grid; gap:1.5rem; grid-template-columns: 1fr 1fr; }
+.pd__img img { width:100%; height:auto; border-radius:.75rem; background:#f9fafb; }
+.pd__price { font-weight:800; margin:.25rem 0 1rem; }
+.pd__buy { display:flex; gap:.75rem; align-items:center; }
+
+/* Cart */
+.cart { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.cart__list { list-style:none; padding:0; margin:0; display:grid; gap:.75rem; }
+.cart__item { display:grid; grid-template-columns: 80px 1fr auto auto auto; gap:.75rem; align-items:center; border:1px solid #e5e7eb; border-radius:.5rem; padding:.5rem; }
+.cart__meta { color:#111827; }
+.cart__qty input { width:72px; border:1px solid #d1d5db; border-radius:.5rem; padding:.4rem .5rem; }
+.cart__sum { font-weight:700; }
+.cart__foot { margin-top:1rem; display:flex; align-items:center; justify-content:space-between; }
