@@ -1,19 +1,28 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Routes, Route, Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Post from "./pages/Post";
+import NotFound from "./pages/NotFound";
 
-export default function App() {
+function Layout() {
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header>
-        <nav aria-label="Primary">
-          <Link to="/">Home</Link>{' | '}
-          <Link to="/post/hello">Sample Post</Link>
-        </nav>
-      </header>
+      <Header />
       <main id="main">
         <Outlet />
       </main>
-      <footer>© {new Date().getFullYear()}</footer>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="post" element={<Post />} />     {/* => /post */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
